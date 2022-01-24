@@ -4,7 +4,7 @@
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
 
-        <title>Example Student's HCDE 439 Physical Computing Page!</title> 
+        <title>Paisley's HCDE 439 Physical Computing Page!</title> 
 
         <link href="style.css" media="screen" rel="stylesheet" type="text/css" />
 
@@ -12,14 +12,110 @@
     <body> 
 
         <div class="header">
-            <h1>Example Student's Assignment 2!</h1>
+            <h1>Paisley's Assignment 2!</h1>
+            <h3>
+            Here is my gif for assignment 1! It shows the GIOP diode fading in red, blue, and green, and the red, blue, and green LEDs turning on.
+            </h3>
             <p>
-            <img src="red-panda.jpg" width=400></a>
+            <img src="circuit.gif" width=400></a>
             </p>
+            <h3>
+            Here is my schematic for assignment 2! The schematic shows how my circuit board should be connected.
+            </h3>
             <p>
-            Here is all the documentation for assignment 2!
+            <img src="schematic2.png" width=400></a>
             </p>
-        </div>
-        
+            <h3>
+            Here is my math for how I chose the proper resistance to use. I chose to use 330 ohms of resistance for all the LED lights, 220 ohms of resistence 
+                for the GIOP light, and 220 ohms of resistence for the button. These are all higher than the minimum resistance required found in my calculations.
+            </h3>
+            <p>
+            <img src="resistance2.png" width=400></a>
+            </p>
+            <h3>
+            This is the code I used to make my the LEDs and GIOP on my arduino blink and fade!
+            </h3>
+            <p>
+                // constants won't change <b>
+                const int buttonPin = 13; // number of the button pin <b>
+                const int redPin =  3; // number of the red GPIO pin <b>
+                const int bluePin = 6; // number of the blue GPIO pin <b>
+                const int greenPin = 5; // number of the green GPI pin <b>
+                const int rPin = 11; // number of the red LED pin <b>
+                const int gPin = 10; // number of the green LED pin <b>
+                const int bPin = 9; // number of the blue LED pin <b>
+                <b>
+                // variables will change <b>
+                int buttonState = 0; // reading button status <b>
+                <b>
+                // setup runs once <b>
+                void setup() { <b>
+                    pinMode(redPin, OUTPUT); // initialize red GPIO pin as output <b>
+                    pinMode(bluePin, OUTPUT); // initialize blue GPIO pin as output <b>
+                    pinMode(greenPin, OUTPUT); // initialize green GPIO pin as output <b>
+                    pinMode(rPin, OUTPUT); // initialize red LED pin as output <b>
+                    pinMode(bPin, OUTPUT); // initialize blue LED pin as output <b>
+                    pinMode(gPin, OUTPUT); // initialize green LED pin as output <b>
+                    pinMode(buttonPin, INPUT); // initialize button pin as output <b>
+                } <b>
+                <b>
+                // loop function repeats forever <b>
+                void loop() { <b>
+                    buttonState = digitalRead(buttonPin); // read button status value <b>
+                    <b>
+                    if (buttonState == HIGH) { // check if button is pressed (buttonState HIGH) <b>
+                    <b>
+                    for (int i = 0 ; i < 200; i = i + 8) { // fade from 0 to 200 by increments of 8 <b>
+                        analogWrite(redPin, i); // fade using red GPIO pin <b>
+                        delay(20); // between each increment wait 20 milliseconds <b>
+                    } <b>
+                    <b>
+                    digitalWrite(rPin, HIGH); // turn on red LED <b>
+                    <b>
+                    for (int i = 200 ; i >= 0; i = i - 8) { // fade from 200 to 0 by increments of 8 <b>
+                        analogWrite(redPin, i); // fade using red GPIO pin <b>
+                        delay(20); // between each increment wait 20 milliseconds <b>
+                    } <b>
+                    <b>
+                    delay(300); // wait 300 milliseconds <b>
+                    <b>
+                    for (int i = 0 ; i < 25; i ++) { // fade from 0 to 25 by increments of 1 <b>
+                        analogWrite(greenPin, i); // fade using green GPIO pin <b>
+                        delay(20); // between each increment wait 20 milliseconds <b>
+                    } <b>
+     <b>
+                    digitalWrite(gPin, HIGH); // turn on green LED <b>
+   <b>
+                    for (int i = 25 ; i >= 0; i --) { // fade from 25 to 0 by increments of 1 <b>
+                        analogWrite(greenPin, i); // fade using green GPIO pin <b>
+                        delay(20); // between each increment wait 20 milliseconds <b>
+                    } <b>
+     <b>
+                    delay(300); // wait 300 milliseconds <b>
+   <b>
+                    for (int i = 0 ; i < 25; i ++) { // fade from 0 to 25 by increments of 1 <b>
+                        analogWrite(bluePin, i); // fade using blue GPIO pin <b>
+                        delay(20); // between each increment wait 20 milliseconds <b>
+                    } <b>
+   <b>
+                    digitalWrite(bPin, HIGH); // turn on blue LED <b>
+   <b>
+                    for (int i = 25 ; i >= 0; i --) { // fade from 25 to 0 by increments of 1 <b>
+                    analogWrite(bluePin, i); // fade using blue GPIO pin <b>
+                    delay(20); // between each increment wait 20 milliseconds <b>
+                    } <b>
+     <b>
+                   delay(300); // wait 300 milliseconds <b>
+   <b>
+                   digitalWrite(rPin, LOW); // turn off red LED <b>
+                   digitalWrite(gPin, LOW); // turn off green LED <b>
+                   digitalWrite(bPin, LOW); // turn off blue LED <b>
+   <b>
+                   } else { <b>
+                   // nothing happens <b>
+                   } <b>
+                } <b>
+            </p>
+        </div>  
     </body>
 </html>
