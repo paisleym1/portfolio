@@ -17,7 +17,7 @@
             Here is my gif for assignment 1! It shows the GIOP diode fading in red, blue, and green, and the red, blue, and green LEDs turning on.
             </h3>
             <p>
-            <img src="circuit.gif" width=400></a>
+            <img src="circuit2.gif" width=400></a>
             </p>
             <h3>
             Here is my schematic for assignment 2! The schematic shows how my circuit board should be connected.
@@ -36,85 +36,85 @@
             This is the code I used to make my the LEDs and GIOP on my arduino blink and fade!
             </h3>
             <p>
-                // constants won't change <b>
-                const int buttonPin = 13; // number of the button pin <b>
-                const int redPin =  3; // number of the red GPIO pin <b>
-                const int bluePin = 6; // number of the blue GPIO pin <b>
-                const int greenPin = 5; // number of the green GPI pin <b>
-                const int rPin = 11; // number of the red LED pin <b>
-                const int gPin = 10; // number of the green LED pin <b>
-                const int bPin = 9; // number of the blue LED pin <b>
-                <b>
-                // variables will change <b>
-                int buttonState = 0; // reading button status <b>
-                <b>
-                // setup runs once <b>
-                void setup() { <b>
-                    pinMode(redPin, OUTPUT); // initialize red GPIO pin as output <b>
-                    pinMode(bluePin, OUTPUT); // initialize blue GPIO pin as output <b>
-                    pinMode(greenPin, OUTPUT); // initialize green GPIO pin as output <b>
-                    pinMode(rPin, OUTPUT); // initialize red LED pin as output <b>
-                    pinMode(bPin, OUTPUT); // initialize blue LED pin as output <b>
-                    pinMode(gPin, OUTPUT); // initialize green LED pin as output <b>
-                    pinMode(buttonPin, INPUT); // initialize button pin as output <b>
-                } <b>
-                <b>
-                // loop function repeats forever <b>
-                void loop() { <b>
-                    buttonState = digitalRead(buttonPin); // read button status value <b>
-                    <b>
-                    if (buttonState == HIGH) { // check if button is pressed (buttonState HIGH) <b>
-                    <b>
-                    for (int i = 0 ; i < 200; i = i + 8) { // fade from 0 to 200 by increments of 8 <b>
-                        analogWrite(redPin, i); // fade using red GPIO pin <b>
-                        delay(20); // between each increment wait 20 milliseconds <b>
-                    } <b>
-                    <b>
-                    digitalWrite(rPin, HIGH); // turn on red LED <b>
-                    <b>
-                    for (int i = 200 ; i >= 0; i = i - 8) { // fade from 200 to 0 by increments of 8 <b>
-                        analogWrite(redPin, i); // fade using red GPIO pin <b>
-                        delay(20); // between each increment wait 20 milliseconds <b>
-                    } <b>
-                    <b>
-                    delay(300); // wait 300 milliseconds <b>
-                    <b>
-                    for (int i = 0 ; i < 25; i ++) { // fade from 0 to 25 by increments of 1 <b>
-                        analogWrite(greenPin, i); // fade using green GPIO pin <b>
-                        delay(20); // between each increment wait 20 milliseconds <b>
-                    } <b>
-     <b>
-                    digitalWrite(gPin, HIGH); // turn on green LED <b>
-   <b>
-                    for (int i = 25 ; i >= 0; i --) { // fade from 25 to 0 by increments of 1 <b>
-                        analogWrite(greenPin, i); // fade using green GPIO pin <b>
-                        delay(20); // between each increment wait 20 milliseconds <b>
-                    } <b>
-     <b>
-                    delay(300); // wait 300 milliseconds <b>
-   <b>
-                    for (int i = 0 ; i < 25; i ++) { // fade from 0 to 25 by increments of 1 <b>
-                        analogWrite(bluePin, i); // fade using blue GPIO pin <b>
-                        delay(20); // between each increment wait 20 milliseconds <b>
-                    } <b>
-   <b>
-                    digitalWrite(bPin, HIGH); // turn on blue LED <b>
-   <b>
-                    for (int i = 25 ; i >= 0; i --) { // fade from 25 to 0 by increments of 1 <b>
-                    analogWrite(bluePin, i); // fade using blue GPIO pin <b>
-                    delay(20); // between each increment wait 20 milliseconds <b>
-                    } <b>
-     <b>
-                   delay(300); // wait 300 milliseconds <b>
-   <b>
-                   digitalWrite(rPin, LOW); // turn off red LED <b>
-                   digitalWrite(gPin, LOW); // turn off green LED <b>
-                   digitalWrite(bPin, LOW); // turn off blue LED <b>
-   <b>
-                   } else { <b>
-                   // nothing happens <b>
-                   } <b>
-                } <b>
+                // constants won't change <br>
+                const int buttonPin = 13; // number of the button pin <br>
+                const int redPin =  3; // number of the red GPIO pin <br>
+                const int bluePin = 6; // number of the blue GPIO pin <br>
+                const int greenPin = 5; // number of the green GPI pin <br>
+                const int rPin = 11; // number of the red LED pin <br>
+                const int gPin = 10; // number of the green LED pin <br>
+                const int bPin = 9; // number of the blue LED pin <br>
+                <br>
+                // variables will change <br>
+                int buttonState = 0; // reading button status <br>
+                <br>
+                // setup runs once <br>
+                void setup() { <br>
+                    pinMode(redPin, OUTPUT); // initialize red GPIO pin as output <br>
+                    pinMode(bluePin, OUTPUT); // initialize blue GPIO pin as output <br>
+                    pinMode(greenPin, OUTPUT); // initialize green GPIO pin as output <br>
+                    pinMode(rPin, OUTPUT); // initialize red LED pin as output <br>
+                    pinMode(bPin, OUTPUT); // initialize blue LED pin as output <br>
+                    pinMode(gPin, OUTPUT); // initialize green LED pin as output <br>
+                    pinMode(buttonPin, INPUT); // initialize button pin as output <br>
+                } <br>
+                <br>
+                // loop function repeats forever <br>
+                void loop() { <br>
+                    buttonState = digitalRead(buttonPin); // read button status value <br>
+                    <br>
+                    if (buttonState == HIGH) { // check if button is pressed (buttonState HIGH) <br>
+                    <br>
+                    for (int i = 0 ; i < 200; i = i + 8) { // fade from 0 to 200 by increments of 8 <br>
+                        analogWrite(redPin, i); // fade using red GPIO pin <br>
+                        delay(20); // between each increment wait 20 milliseconds <br>
+                    } <br>
+                    <br>
+                    digitalWrite(rPin, HIGH); // turn on red LED <br>
+                    <br>
+                    for (int i = 200 ; i >= 0; i = i - 8) { // fade from 200 to 0 by increments of 8 <br>
+                        analogWrite(redPin, i); // fade using red GPIO pin <br>
+                        delay(20); // between each increment wait 20 milliseconds <br>
+                    } <br>
+                    <br>
+                    delay(300); // wait 300 milliseconds <br>
+                    <br>
+                    for (int i = 0 ; i < 25; i ++) { // fade from 0 to 25 by increments of 1 <br>
+                        analogWrite(greenPin, i); // fade using green GPIO pin <br>
+                        delay(20); // between each increment wait 20 milliseconds <br>
+                    } <br>
+     <br>
+                    digitalWrite(gPin, HIGH); // turn on green LED <br>
+   <br>
+                    for (int i = 25 ; i >= 0; i --) { // fade from 25 to 0 by increments of 1 <br>
+                        analogWrite(greenPin, i); // fade using green GPIO pin <br>
+                        delay(20); // between each increment wait 20 milliseconds <br>
+                    } <br>
+     <br>
+                    delay(300); // wait 300 milliseconds <br>
+   <br>
+                    for (int i = 0 ; i < 25; i ++) { // fade from 0 to 25 by increments of 1 <br>
+                        analogWrite(bluePin, i); // fade using blue GPIO pin <br>
+                        delay(20); // between each increment wait 20 milliseconds <br>
+                    } <br>
+   <br>
+                    digitalWrite(bPin, HIGH); // turn on blue LED <br>
+   <br>
+                    for (int i = 25 ; i >= 0; i --) { // fade from 25 to 0 by increments of 1 <br>
+                    analogWrite(bluePin, i); // fade using blue GPIO pin <br>
+                    delay(20); // between each increment wait 20 milliseconds <br>
+                    } <br>
+     <br>
+                   delay(300); // wait 300 milliseconds <br>
+   <br>
+                   digitalWrite(rPin, LOW); // turn off red LED <br>
+                   digitalWrite(gPin, LOW); // turn off green LED <br>
+                   digitalWrite(bPin, LOW); // turn off blue LED <br>
+   <br>
+                   } else { <br>
+                   // nothing happens <br>
+                   } <br>
+                } <br>
             </p>
         </div>  
     </body>
