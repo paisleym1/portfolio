@@ -1,1 +1,58 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
 
+        <title>Paisley's HCDE 439 Physical Computing Page!</title> 
+
+        <link href="style.css" media="screen" rel="stylesheet" type="text/css" />
+
+    </head> 
+    <body> 
+
+        <div class="header">
+            <h1>Paisley's Assignment 4!</h1>
+            <h3>
+            Here is my gif for assignment 4! It shows the servo motor moving when I move the joystick.
+            <p>
+            <img src="circuit4.GIF" width=400></a>
+            </p>
+            <h3>
+            Here is my schematic for assignment 4! The schematic shows how my circuit board should be connected.
+            </h3>
+            <p>
+            <img src="schematic4.png" width=400></a>
+            </p>
+            <h3>
+            I did not use any resistors for this assignment.
+            </h3>
+            <h3>
+            This is the code I used to make my the LEDs and GIOP on my arduino blink and fade!
+            </h3>
+            <p>
+                // import servo library (some servo code sampled from Knob example code by Scott Fitzgerald) <br>
+#include <Servo.h><br>
+Servo myservo;  // create servo object to control a servo<br>
+<br>
+// constants won't change<br>
+int xPin = A0; // declare pin A<br>
+int yPin = A1; // <br>
+<br>
+void setup() { // put your setup code here, to run once:<br>
+  Serial.begin(9600);<br>
+  pinMode(yPin, INPUT); // initialize yPin as input<br>
+  myservo.attach(11);  // attaches the servo on pin 11 to the servo object<br>
+}<br>
+<br>
+void loop() { // put your main code here, to run repeatedly:<br>
+  buttonState = digitalRead(buttonPin); // read the state of the button value<br>
+    myservo.write(180 - analogRead(yPin) * 0.175);<br>
+    Serial.print("You have turned the servo");<br>
+    Serial.print(analogRead(xPin) * 0.175);<br>
+    // delay(100); // add some delay between reads<br>
+ // }<br>
+}<br>
+            </p>
+    </body>
+</html>
