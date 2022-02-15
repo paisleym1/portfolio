@@ -33,26 +33,20 @@
             <p>
                 // import servo library (some servo code sampled from Knob example code by Scott Fitzgerald) <br>
 #include &lt;Servo.h&gt; <br>
-Servo myservo;  // create servo object to control a servo<br>
+<br>
+                Servo myservo;  // create servo object to control a servo<br>
 <br>
 // constants won't change<br>
-int xPin = A0; // declare pin A<br>
-int yPin = A1; // <br>
+int yPin = A1; // pin A0 to yPin<br>
 <br>
 void setup() { // put your setup code here, to run once:<br>
-  Serial.begin(9600);<br>
   pinMode(yPin, INPUT); // initialize yPin as input<br>
   myservo.attach(11);  // attaches the servo on pin 11 to the servo object<br>
 }<br>
 <br>
 void loop() { // put your main code here, to run repeatedly:<br>
-  buttonState = digitalRead(buttonPin); // read the state of the button value<br>
-    myservo.write(180 - analogRead(yPin) * 0.175);<br>
-    Serial.print("You have turned the servo");<br>
-    Serial.print(analogRead(xPin) * 0.175);<br>
-    // delay(100); // add some delay between reads<br>
- // }<br>
-}<br>
+  myservo.write(180 - analogRead(yPin) * 0.175); // turn the servo motor that amount<br>
+ }<br>
             </p>
     </body>
 </html>
