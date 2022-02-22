@@ -41,7 +41,7 @@
             <p>
 // more info on Joystick library at https://www.arduino.cc/reference/en/libraries/joystick/ <br>
 <br>
-#include <Joystick.h> // import library
+#include &lt;Joystick.h&gt; // import library
 <br>
 Joystick joystick(A0, A1, 13); // library assigning A0 to x-axis, A1 to y-axis, and pin 13 to the joystick pushbutton
 <br>
@@ -52,7 +52,7 @@ void setup() {<br>
 <br>
 void loop() {<br>
   joystick.printY('', 0, 100); // print the Y value of joystick to serial monitor<br>
-  Serial.println(); // to not next line<br>
+  Serial.println(); // go to next line<br>
   analogWrite(9, analogRead(A1)*0.95); // speed up or slow down the fan the certain amount<br>
 }<br>
             </p>
