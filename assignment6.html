@@ -1,0 +1,170 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
+
+        <title>Paisley's HCDE 439 Physical Computing Page!</title> 
+
+        <link href="style.css" media="screen" rel="stylesheet" type="text/css" />
+
+    </head> 
+    <body> 
+
+        <div class="header">
+            <h1>Paisley's Assignment 6!</h1>
+            <h3> I could not get this assignment to work properly either. I was working with Nick for a long time, and Nick said my code looked correct, but when I tried to actually
+                run it my browser would crash. Here is a picture of how my circuit is set up.</h3>
+            <p>
+            <img src="circuit6.jpg" width=400></a> <br>
+            </p>
+            <h3>
+            Here is the schematic.
+            </h3>
+            <p>
+            <img src="schematic6.png" width=400></a>
+            </p>
+            <h3>
+            This is my math to choose the size of resistor I should use.
+            </h3>
+            <p>
+              <img src="resistor6.jpg" width=400></a>
+            </p>  
+            <h3>
+            Code
+            </h3>
+            <p>
+              <b> This is my arduino code </b>
+              const int x = A0; // set constant x equal to A0 <br>
+const int y = A1; // set constant y equal to A1<br>
+<br>
+void setup() { // setup code only runs once<br>
+  pinMode(x, INPUT); // initialize pin x as input<br>
+  pinMode(y, INPUT); // initialize pin y as input<br>
+  pinMode(13, OUTPUT); // initialize pin 13 as output<br>
+  Serial.begin(9600); // initialize serial communication<br>
+}<br>
+<br>
+void loop() { // put your main code here, to run repeatedly:<br>
+  Serial.print(analogRead(x)/2); // print x-value to monitor<br>
+  Serial.print(","); // print comma in between the two values<br>
+  Serial.println(analogRead(y)/2); // print y value to monitor<br>
+  if (Serial.available()) { // if there's serial input available<br>
+    int inputValue = Serial.read(); // read it into a variable<br>
+    analogWrite(13, inputValue); // and use the variable to turn on/off the LED<br>
+  }<br>
+}<br>
+            </p>
+<p> <b> This is my index code </b>
+<!DOCTYPE html> <br>
+<style><br>
+	html, body {<br>
+		height: 100%;<br>
+	}<br>
+	body {<br>
+		margin: 0; <br>
+		display: flex;<br>
+		justify-content: center; /* This centers our sketch horizontally. */<br>
+		align-items: center; /* This centers our sketch vertically. */<br>
+	}<br>
+</style><br>
+<br>
+<html lang=""><br>
+  <head><br>
+    <meta charset="utf-8"><br>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"><br>
+    <title>Assignment 6: Talking to the Web</title><br>
+    <style> body {padding: 0; margin: 0;} </style><br>
+    <script src="../p5.min.js"></script><br>
+    <script src="../addons/p5.sound.min.js"></script><br>
+    <script src="../addons/p5.serialport.js"></script><br>
+    <script src="a6.js"></script><br>
+<br>
+  </head><br>
+  <body><br>
+  </body><br>
+</html><br>
+</p>
+
+<p> This is my sketch code </p>
+// I used this code to help my for this assingment: https://editor.p5js.org/Hanyi/sketches/THNzRgOPm <br>
+<br>
+let circle_x, circle_y;<br>
+<br>
+var serial; // variable to hold an instance of the serialport library<br>
+var portName = 'COM3' //rename to the name of your port<br>
+var datain; //some data coming in over serial!<br>
+var xPos = 0;<br>
+<br>
+function setup() {<br>
+	serial = new p5.SerialPort();       // make a new instance of the serialport library<br>
+	serial.on('list', printList);       // set a callback function for the serialport list event<br>
+	serial.on('connected', serverConnected); // callback for connecting to the server<br>
+	serial.on('open', portOpen);        // callback for the port opening<br>
+	serial.on('data', serialEvent);     // callback for when new data arrives<br>
+	serial.on('error', serialError);    // callback for errors<br>
+	serial.on('close', portClose);      // callback for the port closing<br>
+	serial.list();                      // list the serial ports<br>
+	serial.open(portName);              // open a serial port<br>
+	createCanvas(512, 512);<br>
+}<br>
+<br>
+// get the list of ports:<br>
+function printList(portList) {<br>
+	// portList is an array of serial port names<br>
+	for (var i = 0; i < portList.length; i++) {<br>
+		// Display the list the console:<br>
+		print(i + " " + portList[i]);<br>
+	}<br>
+}<br>
+<br>
+function serverConnected() {<br>
+	print('connected to server.');<br>
+}<br>
+<br>
+function portOpen() {<br>
+	print('the serial port opened.')<br>
+}<br>
+<br>
+function serialError(err) {<br>
+	print('Something went wrong with the serial port. ' + err);<br>
+}<br>
+<br>
+function portClose() {<br>
+	print('The serial port closed.');<br>
+}<br>
+<br>
+function serialEvent() {<br>
+	if (serial.available()) {<br>
+	datain = serial.readLine();<br>
+	console.log(datain);<br>
+	let data_array = split(datain, ",");<br>
+	console.log(data_array[0]);<br>
+	if (data_array > 1) {<br>
+		circle_x = data_array[0];<br>
+		circle_y = data_array[1];<br>
+		}<br>
+	} <br>
+}<br>
+<br>
+function draw() {<br>
+	background(0);<br>
+	fill(255, 0, 0);<br>
+	rect(230, 0, 100, 512);<br>
+	//coordinates = (console.log(datain));<br>
+	//circle_x = int(coordinates[0]);<br>
+	//circle_y = int(coordinates[1]);<br>
+	fill(255, 255, 255);<br>
+	rect(circle_x, circle_y, 30, 30);<br>
+}<br>
+<br>
+function joystick() {<br>
+	if (230 < circle_x < 330) { <br>
+		serial.write("HIGH");<br>
+	} else {<br>
+		serial.write("LOW");<br>
+	}<br>
+}<br>
+</p>
+    </body>
+</html>
