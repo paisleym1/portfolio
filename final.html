@@ -1,0 +1,76 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
+
+        <title>Paisley's HCDE 439 Physical Computing Page!</title> 
+
+        <link href="style.css" media="screen" rel="stylesheet" type="text/css" />
+
+    </head> 
+    <body> 
+
+        <div class="header">
+            <h1>Paisley's Assignment 3!</h1>
+            <h3>
+            Here is my gif for assignment 3! It shows the GIPO LED glowing red in the light, and glowsing blue when I cover the photoreceptor with my finger.
+            </h3>
+            <p>
+            <img src="circuit3.GIF" width=400></a>
+            </p>
+            <h3>
+            This is what the Serial Monitor shows as the LED switched from red to blue.
+            </h3>
+            <p>
+            <img src="serialMonitor.gif" width=400></a>
+            </p>
+            <h3>
+            Here is my schematic for assignment 3! The schematic shows how my circuit board should be connected.
+            </h3>
+            <p>
+            <img src="schematic3.png" width=400></a>
+            </p>
+            <h3>
+            Here is my math for how I chose the proper resistances to use. I chose to use 220 ohms of resistence for the GPIO LED, and 10 kohms of resistence for the 
+              photoreceptor. The photoreceptor would work just fine with a lower resistance, but a higher resistance saves energy. As the resistance of the photoreceptor
+              translates to the LED being either red or blue, the exact amount of resistance doesn't matter.
+            </h3>
+            <p>
+            <img src="resistance3.png" width=400></a>
+            </p>
+            <h3>
+            This is the code I used to make my the LEDs and GIOP on my arduino blink and fade!
+            </h3>
+            <p>
+              int red = 0; // variable, will change depending on color of light <br>
+              void setup() { <br>
+              pinMode(3, OUTPUT); // initialize pin 3 as output <br>
+  pinMode(6, OUTPUT); // initialize pin 6 as output <br>
+  pinMode(A0, INPUT); // initialize pin A0 as input <br>
+  Serial.begin(9600); // initialize serial monitor <br>
+} <br>
+void loop() { <br>
+  // the following two lines of code are from our class activity on 1/25/21 <br>
+  int sensorValue = analogRead(A0); // read the analog in value <br>
+  int outputValue = map(sensorValue, 500, 900, 255, 0); // map it to the range of the analog out <br>
+  if (outputValue <= 150){ // if the output value is less than or equal to 150 <br>
+    analogWrite(3, 15); // turn light red at value 15 <br>
+    analogWrite(6, 0); // turn light blue at value 0 <br>
+    red = 1; // variable "red" equals 1 <br>
+  } <br>
+  if (outputValue > 150){ <br>
+    analogWrite(6, 75); // turn light blue at value 75 <br>
+    analogWrite(3, 0); // turn light red at value 0 <br>
+    red = 0; // variable "red" equals 0 <br>
+  } <br>
+  if (red == 1) { // if variable "red" equals 1 <br>
+    Serial.println("The light is red."); // print that the light is red to the Serial Monitor <br>
+  } <br>
+  if (red == 0) { // if the variable "red" equals 0 <br>
+    Serial.println("The light is blue."); // print that the light is blue to the Serial Monitor <br>
+  } <br>
+} <br>
+</p>
+</body>
+</html>
