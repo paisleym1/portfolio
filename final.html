@@ -27,7 +27,7 @@
         </div> 
     
         <div class="header">
-            <img style="float:right;" src="ledthermistor.gif" width=400></a>
+            <img style="float:right; padding=20px;" src="ledthermistor.GIF" width=400></a>
             <h3>
             LEDs Reacting to Thermistor
             </h3>
@@ -41,14 +41,14 @@
                 <li>665 <= t < 675 = green, blue on HIGH; white, red, yellow on LOW</li>  
                 <li>t > 675 = blue on HIGH; white, red, yellow, green on LOW</li>  
             </ul>
+            <img style="float:left; padding=20px;" src="resistance.png" width = 400></a> 
             <p>
                 For all the lights I used 220 ohm resistors because it is higher than the minimum required resistance for these LEDs when connected to the Arduino Uno. For the thermistor I used a 330 ohm resistor because it did not matter what kind of resistor I used (so long as I used one) and the 330 ohm resistor was the one I happened to pick up. 
             </p>
-            <img src="resistance.png" width = 400></a>
+            <img style="float:right; padding=20px;" src="schematicledther.png" width=400></a>
             <p>
             Here is the schematic for LEDs and thermistor.
             </p>
-            <img src="schematicledther.png" width=400></a>
             <h3>
             Here is my math for how I chose the proper resistances to use. I chose to use 220 ohms of resistence for the GPIO LED, and 10 kohms of resistence for the 
               photoreceptor. The photoreceptor would work just fine with a lower resistance, but a higher resistance saves energy. As the resistance of the photoreceptor
