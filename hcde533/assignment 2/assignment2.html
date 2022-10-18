@@ -4,22 +4,56 @@
         <meta charset="utf-8"> 
         <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
 
-        <title>Example Student's HCDE 439 Physical Computing Page!</title> 
+        <title>Paisley Maschmeier's HCDE 533 Digital Fabrication Page</title> 
 
         <link href="style.css" media="screen" rel="stylesheet" type="text/css" />
-
     </head> 
     <body> 
 
         <div class="header">
-            <h1>Example Student's Assignment 2!</h1>
-            <p>
-            <img src="red-panda.jpg" width=400></a>
-            </p>
-            <p>
-            Here is all the documentation for assignment 2!
-            </p>
+            <h1>Paisley Maschmeier's Assignment 2: Parametric Modelling with Grasshopper</h1>
         </div>
+        
+    <h4>For this assignment I still wanted to make a ninja star, but this time the pieces needed to fit together better.</h4>
+        
+    <p> I started out with the grasshoppper model we made in class, but I wanted it to look more like a ninja star. So I added "blades" to the ends that stuck out, 
+        and added sliders to adjust the number, size, and angle of the blades. I did this by marking a point outside of the circle that I wanted the blade to reach, and
+        then connecting that point witht the circle using lines.</p>
+        
+        <a href="https://github.com/paisleym1/hcde439/tree/main/hcde533/assignment%202/ninja_star" target="_blank"><h4>Grasshopper Parametric Modeling</h2></a>
+        
+        <h4>Below are some of the shapes I was able to make with my rhino model:</h4>
+        
+    <img src="screenshot.png" width=800></a>    
+        
+    <p> I used a different cardboard for this assignment than I did in assignment 1, so I had to remeasure the thickness. Using the calipers at the MILL to measure the thickness of the cardboard, 
+        I seem to be getting a measurement of anything between 3.8mm and 4.2 mm so I decided to try printer in different sizes to see what fits best.</p>
+        
+    <p> I started by cutting rectangles out of some scrap cardboard that were 10mm, 15mm, and 20mm tall and 3.8mm, 4mm, 4.2mm wide. I definitely cut the rectangles too close
+        together, but I was still able to get a decent sense of what kind of slit worked best for holding the cardboard. I ended up going with 3.6mm x 20mm slits in my 
+        ninja stars.</p>
+
+        <h4>These are the test cuts I made</h4>
+        
+    <img src="test_cut.jpg" width=800></a>  
+        
+    <p> Once I had figured out those measurements, I was able to bake my shape from grasshopper and add depth to it. I decided to start with simple, small bladed 4 slit ninja star. 
+        I made the ninja star 40mm in radius so that two full slits could fit across the star. </p>
+    
+<a href="https://github.com/paisleym1/hcde439/blob/main/hcde533/assignment%202/4star.3dm" target="_blank"><h4>Four Pointed Ninja Star 3D Model</h2></a>
+
+    <p>I then converted the rhino file to a .dxf file, and used a laptop at the MILL to open
+         the .dxf file in Adobe Illustrator for cutting. I didn't need to scale the image at all, and I made sure the vectors were set to width 0.01 and color (0,0,0). </p>
+        
+    <a href="hhttps://github.com/paisleym1/hcde439/blob/main/hcde533/assignment%202/4star.dxf" target="_blank"><h4>Four Pointed Ninja Star .dxf file</h4></a>
+        
+   <p> I began the laser cutting with the preferences set to 100 speed, 50 power, and 50 frequency, but that didn't cut through the cardboard all the way, so I upped it to
+       100 speed, 65 power, and 50 frequency, which worked very well. I started by only cutting three stars, which fit together really nicely, so I made 18 more. </p>
+        
+    <img src="4star.jpg" width=800></a>  
+    
+    
+      
         
     </body>
 </html>
