@@ -1,0 +1,60 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
+
+        <title>Paisley's HCDE 439 Physical Computing Page!</title> 
+
+        <link href="style.css" media="screen" rel="stylesheet" type="text/css" />
+
+    </head> 
+    <body> 
+
+        <div class="header">
+            <h1>Paisley's Assignment 5!</h1>
+            <p>
+            I was really struggling with this assignment, I broke both my transistors and the library I chose didn't work out as well as I thought it would for
+              this assignment. That being said, I learned a lot and I feel much more equipped going forward in this class. I also ordered more resistors. 
+            </p>
+            <h3> Unfortunately, because of my struggles with this assignment, I do not have a gif to show, but here is an image of my circut. </h3>
+            <p>
+            <img src="circuit5.jpg" width=400></a> <br>
+            What I wanted was for the fan to go faster when I pushed the joystick forward, and then slow down (and eventually stop) as I pulled the joystick backwards.
+            </p>
+            <h3>
+            Here is my schematic for assignment 5! The schematic shows how my circuit board should be connected.
+            </h3>
+            <p>
+            <img src="schematic5.png" width=400></a>
+            </p>
+            <h3>
+            This is my math to choose the size of resisotr I should use between the drain of the transistor and the arduino uno. Here I assumed the max current to be 30mA 
+             and the volts going through the transistor to be 60. 
+            </h3>
+            <p>
+              <img src="resistor.jpg" width=400></a>
+            </p>  
+            <h3>
+            This is my code
+            </h3>
+            <p>
+// more info on Joystick library at https://www.arduino.cc/reference/en/libraries/joystick/ <br>
+<br>
+#include &lt;Joystick.h&gt; // import library
+<br>
+Joystick joystick(A0, A1, 13); // library assigning A0 to x-axis, A1 to y-axis, and pin 13 to the joystick pushbutton
+<br>
+void setup() {<br>
+  Serial.begin(9600); // initialize serial monitor<br>
+  pinMode(9, OUTPUT); // initialize pin 9 as output<br>
+}<br>
+<br>
+void loop() {<br>
+  joystick.printY('', 0, 100); // print the Y value of joystick to serial monitor<br>
+  Serial.println(); // go to next line<br>
+  analogWrite(9, analogRead(A1)*0.95); // speed up or slow down the fan the certain amount<br>
+}<br>
+            </p>
+    </body>
+</html>

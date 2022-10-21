@@ -1,0 +1,170 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <meta charset="utf-8"> 
+        <meta name="viewport" content="width=device-width, maximum-scale=1.0" />
+
+        <title>Paisley's HCDE 439 Physical Computing Page!</title> 
+
+        <style>
+			* {
+				font-family: 'arial';
+			}
+			div {
+				width:800px;
+				margin:auto;
+			}
+			.left {
+				margin: 30px 30px 30px 0px;
+				width:400px;
+				float:left;
+			}
+			.right {
+				margin: 30px 0px 30px 30px;
+				width: 500px;
+				float:right;
+			}
+			
+		</style>
+    </head> 
+    <body> 
+
+        <div>
+            <h1>Paisley's Final Project!</h1>
+            <p>
+            For my final project I decided to make an interactive art piece with lights and motors that react to real-world inputs. The art piece I used for this project is a portrait of Senora Sabasa Garcia by 19th century artist Francisco Goya, which I salvaged from the trash in high school. 
+            </p>
+            <img class="left" src="sabasa.png" style="width:500px";></a>
+            <h3><br>Concept: Interactive Art Piece </h3>
+            <p>
+            To the left is my original concept sketch. I had many ideas for possible interactions, which are listed next to the sketch. I ranked the interactions from what I thought was most important for my project to least important, and decided my plan would be to go down the list, completing as many interactions as I could before the dealine. I was able to complete the first three interactions: LEDs Reacting to Thermoster, Light Strip Reacting to Photoresistor, and Joystick Controlling Servo Motor.
+            </p>
+			<p><br></p>
+            <img class="right" src="ledthermistor.GIF" style="width:300px;"></a>
+            <h3><br><br>1: LEDs Reacting to Thermistor</h3>
+            <p>
+                For this interaction, I wired 6 white, red, yellow, green, and blue LEDs that would light up depending on reading by the thermistor. Allow t to be the reading given by the resistor, if:
+            </p>
+            <ul>
+                <li>t < 645 = white, red, yellow, green, blue on HIGH</li>
+                <li>645 <= t < 655 = red, yellow, green, blue on HIGH; white on LOW</li>  
+                <li>655 <= t < 665 = yellow, green, blue on HIGH; white, red on LOW</li>  
+                <li>665 <= t < 675 = green, blue on HIGH; white, red, yellow on LOW</li>  
+                <li>t > 675 = blue on HIGH; white, red, yellow, green on LOW</li>  
+            </ul> 
+            <p>
+                For all the lights I used 220 ohm resistors because it is higher than the minimum required resistance for these LEDs when connected to the Arduino Uno. For the thermistor I used a 330 ohm resistor because it did not matter what kind of resistor I used (so long as I used one) and the 330 ohm resistor was the one I happened to pick up. <br><br>Below is the schematic and math for the resistor. 
+            </p>
+			<img class="left" src="ledtherschem.png" style="width:400px; margin: 0;"></a>
+			<img class="right" src="resistance.png" style="width:350px;"></a>
+			<div style="width:800px;height:30px;float:right;"></div>
+			<img class="left" src="lightstrip.GIF" style="width:300px;"></a>
+			<h3><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>2: Light Strip Reacting to Photoresistor </h3>
+			<p>For this interaction, I put an LED light strip around the edge of the subject in the portrait. I wanted the light strip to turn on depending on the reading from the photoresistor. Allow p to be the reading from the photoresistor, if:</p>
+			<ul>
+                <li>p > 400 = light strip on HIGH</li>
+                <li>p <=  400 = light strip on LOW </li>   
+            </ul> 
+			<p>For the photoresistor I used a 10k resistor to save energy, as it doesn't actually matter what resistor you use in this case. <br> Below is the light strip and photoresistor schematic</p>
+			<img class="right" src="stripschem.png" style="width:380px;margin-right:40px;margin-top:0;"></a>
+			<div style="width:800px;height:30px;float:right;"></div>
+			<img class="right" src="servo.GIF" style="width:300px;")></a>
+			<h3><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>3: Joystick Controlling Servo Motor</h3>
+			<p>For this interaction, I attached a servo motor to my art piece and controlled it using a joystick that I also attached. Moving the joystick up or down controls the position of the servo motor. How it works is the reading given by the joystick’s y-axis is multiplied by 0.175 to become a degree of the position on the servo. For example, a joystick reading of 743 puts the servo at the 130-degree mark. <br>Below is the schematic for the servo and joystick.</p>
+			<img class="left" src="servjoy.png" style="width:400px;"></a>
+			<div style="width:800px;height:10px;float:right;"></div>
+			<img class="left" src="senorasabasagarciapng.jpg"></a>
+			<h3><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>Final: Senora Sabasa Garcia</h3>
+			<p>Watch my video demontration here:</p>
+			<a href="https://drive.google.com/file/d/1tKyb2mlLkQbe6NZIHFupKpJVH7FhhoQB/view?usp=sharing">video link</a>
+			<p>Here is the back of the art piece</p>
+			<img class="right" src="sabasaback.png" style="width:350px; margin:0;"></a>
+			<p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p><p><br></p>
+			<p>Here is the code for this project:</p>
+			<p>
+				int t = 0; // create variable t, assign 0 <br>
+				#include &lt;Servo.h&gt; // import servo <br>
+				Servo myservo; // create servo object to control a servo<br>
+				<br>
+				void setup() { <br>
+				&ensp; pinMode(A0, INPUT); // initialize A0 as input - thermoster<br>
+				&ensp; pinMode(A1, INPUT); // initialize A1 as input - joystick<br>
+				&ensp; pinMode(A2, INPUT); // initialize A1 as input - light sensor<br>
+				&ensp; pinMode(13, OUTPUT); // initialize pin 13 as output - white LED<br>
+				&ensp; pinMode(12, OUTPUT); // initialize pin 12 as output - red LED<br>
+				&ensp; pinMode(8, OUTPUT); // initialize pin 8 as output - yellow LED<br>
+				&ensp; pinMode(6, OUTPUT); // initialize pin 7 as output - green LED<br>
+				&ensp; pinMode(4, OUTPUT); // initialize pin 4 as output - blue LED<br>
+				&ensp; pinMode(2, OUTPUT); // initialize pin 2 as output - lightstrip<br>
+				&ensp; myservo.attach(11); // attaches the servo on pin 11 to the servo object<br>
+				} <br>
+				<br>
+				void loop() {<br>
+				// servo/joystick code<br>
+				&ensp; myservo.write(analogRead(A1) * 0.175); // turn the servo motor that amount analogRead(A1) * 0.175<br>
+				// light sensor/light strip code<br>
+				&ensp;int sensorValue = analogRead(A2); // read the analog in value<br>
+				&ensp;int outputValue = map(sensorValue, 500, 900, 255, 0); // map it to the range of the analog out<br>
+				&ensp;if (outputValue &lt;= 400){ // if the output value is less than or equal to 400<br>
+				&ensp;&ensp;digitalWrite(2, LOW); // turn lightstrip off<br>
+				&ensp;} <br>
+				&ensp;if (outputValue &gt; 400){<br>
+				&ensp;&ensp; digitalWrite(2, HIGH); // turn lightstrip on<br>
+				&ensp;}<br>
+				// thermoster/LED code<br>
+				&ensp; t = analogRead(A0); // t equals the reading from the thermoster<br>
+				&ensp; if (t &lt; 645) { // if the reading from the thermoster is below 70<br>
+				&ensp;&ensp;digitalWrite(13, HIGH); // white light on<br>
+				&ensp;&ensp;digitalWrite(12, HIGH); // red light on<br>
+				&ensp;&ensp;digitalWrite(8, HIGH); // yellow light on<br>
+				&ensp;&ensp;digitalWrite(6, HIGH); // green light on<br>
+				&ensp;&ensp;digitalWrite(4, HIGH); // blue light on<br>
+				&ensp;}<br>
+				&ensp;if (645 &lt;= t && t &lt; 655) { // if the reading from the thermoster is between 70 and 100<br>
+				&ensp;&ensp;digitalWrite(13, LOW); // white light off<br>
+				&ensp;&ensp;digitalWrite(12, HIGH); // red light on<br>
+				&ensp;&ensp;digitalWrite(8, HIGH); // yellow light on<br>
+				&ensp;&ensp;digitalWrite(6, HIGH); // green light on<br>
+				&ensp;&ensp;digitalWrite(4, HIGH); // blue light on<br>
+				&ensp;}<br>
+				&ensp;if (655 &lt;= t && t &lt; 665) { // if the reading from the thermoster is between 100 and 130<br>
+				&ensp;&ensp;digitalWrite(13, LOW); // white light off<br>
+				&ensp;&ensp;digitalWrite(12, LOW); // red light off<br>
+				&ensp;&ensp;digitalWrite(8, HIGH); // yellow light on<br>
+				&ensp;&ensp;digitalWrite(6, HIGH); // green light on<br>
+				&ensp;&ensp;digitalWrite(4, HIGH); // blue light on<br>
+				&ensp;}<br>
+				&ensp;if (665 &lt;= t && t &lt; 675) { // if the reading from the thermoster is between 130 and 160<br>
+				&ensp;&ensp;digitalWrite(13, LOW); // white light off<br>
+				&ensp;&ensp;digitalWrite(12, LOW); // red light off<br>
+				&ensp;&ensp;digitalWrite(8, LOW); // yellow light off<br>
+				&ensp;&ensp;digitalWrite(6, HIGH); // green light on<br>
+				&ensp;&ensp;digitalWrite(4, HIGH); // blue light on<br>
+				&ensp;}<br>
+				&ensp;if (675 &lt;= t) { // if the reading from the thermoster is above 160<br>
+				&ensp;&ensp;digitalWrite(13, LOW); // white light off<br>
+				&ensp;&ensp;digitalWrite(12, LOW); // red light off<br>
+				&ensp;&ensp;digitalWrite(8, LOW); // yellow light off<br>
+				&ensp;&ensp;digitalWrite(6, LOW); // green light off<br>
+				&ensp;&ensp;digitalWrite(4, HIGH); // blue light on <br>
+				&ensp;}<br>
+				}<br>
+			</p>
+			<p>Here is the circuitry, I circled and labeled in important stuff.</p>
+			<img src="circuitry.png" style="width:800px;"></a>
+			<p>Some resources I used to help me are:</p>
+			<a href="https://create.arduino.cc/projecthub/Marcazzan_M/how-easy-is-it-to-use-a-thermistor-e39321">Thermistor Source <br></a>
+			<a href="https://create.arduino.cc/projecthub/MisterBotBreak/how-to-use-a-photoresistor-46c5eb">Photoresistor Source<br></a>
+			<a href="https://www.instructables.com/How-to-use-a-photoresistor-or-photocell-Arduino-Tu/">Another Photoresitor Source<br></a>
+			<a href="https://www.youtube.com/watch?v=sVyi7yWuXxs">LightStrip Resource<br></a>
+			<h3>Challenges</h3>
+			<ul>
+				<li>Soldering took a lot longer than expected</li>
+				<li>Difficult to keep wires from touching</li>
+				<li>Wires/resistors breaking/running out</li>
+				<li>Hard to keep track of everything</li>
+			</ul>
+			<p>If I could do this project again I would use less resistors for the LEDs. Each LED doesn't actually need its own resistor.</p>
+		</div>
+	</body>
+</html>
