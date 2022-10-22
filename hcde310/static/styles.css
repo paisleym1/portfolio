@@ -1,0 +1,107 @@
+/* CSS Styles*/
+/* The blueprint of my website*/
+
+* {
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+    font-family: "Calibri";
+    font-size:17px;
+    border-radius: 5px;
+}
+
+body {
+    width:100%;
+    margin: auto;
+    padding:1% 5% 1% 5%;
+    background:#dae6f0;
+}
+
+nav{
+    float:left;
+    background-color: #dae6f0;
+    width:100%;
+    padding:0;
+}
+
+div{
+    padding:5%;
+    background:#dae6f0;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding:0.5%;
+  border: 1px solid #386890;
+  resize: vertical;
+}
+
+label.forms {
+    padding: 1% 0 0.5% 1%;
+    display: inline-block;
+}
+
+input[type=submit] {
+    background-color: #588ebb;
+    color: white;
+    padding:1%;
+    border: none;
+    cursor: pointer;
+    margin-top:2.5%
+}
+
+input[type=submit].header {
+    width:fit-content;
+    text-align: center;
+    text-decoration: none;
+    float: left;
+    font-size: 40px;
+    font-weight: bold;
+    color: black;
+    padding: 2%;
+    margin-bottom: 3.5%;
+    font-family:"Georgia";
+    background-color: goldenrod;
+}
+
+input[type=submit].normal {
+    background-color: #dae6f0;
+    float:right;
+    padding:2%;
+    width:fit-content;
+    display:block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+    color: black;
+}
+
+input[type=submit].normal:hover {
+    background-color: #588ebb;
+    color:white;
+}
+
+input[type=submit]:hover.forms {
+    background-color: #386890;
+}
+
+form.forms {
+    padding: 1.5%;
+}
+
+a.link {
+    color: black;
+    font-weight: bold;
+}
+
+div.results{
+    background: #588ebb;
+    margin: 15% 20% 0 20%;
+}
+
+p.results{
+    text-align: center;
+    color: white;
+}
+

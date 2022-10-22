@@ -16,7 +16,7 @@
 
         
 
-        <title>:: avana LLC | About ::</title>
+        <title>:: avana LLC ::</title>
 
 		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 
@@ -44,7 +44,11 @@
 
         <!-- font-awesome -->
 
-        
+        <link href="css/effects/set2.css" rel="stylesheet" type="text/css">
+
+        <link href="css/effects/normalize.css" rel="stylesheet" type="text/css">
+
+        <link href="css/effects/component.css"  rel="stylesheet" type="text/css" >
 
 	</head>
 
@@ -76,9 +80,9 @@
 
                         <ul>
 
-                            <li><a href="index.html" title="Work">Work</a></li>
+                            <li class="nav-active"><a href="index.html" title="Work">Work</a></li>
 
-                            <li class="nav-active"><a href="about.html" title="About">About</a></li>
+                            <li><a href="about.html" title="About">About</a></li>
 
                             <li><a href="blog.html" title="Blog">Blog</a></li>
 
@@ -102,117 +106,79 @@
 
         	
 
-            <div class="row">
-
             
 
-            	<section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+            	
 
-                	<article role="pge-title-content">
+                <!-- work details -->
 
-                    	<header>
+                	<div class="work-details">
 
-                        	<h2><span>We Do</span> What we love to do.</h2>
+                    	
 
-                        </header>
+                        <div class="row">
 
-                        <p>Over 40,000 customers use our themes to power their websites and we love them.</p>
+                        	<div class="col-xs-12 col-sm-12 col-md-4">
 
-                    </article>
+                            	<header role="work-title">
 
-                </section>
+                                	<h2>Project Name</h2>
 
-                
+                                    <a href="#">Visit online <i class="fa fa-external-link" aria-hidden="true"></i></a>
 
-                <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                                </header>
 
-                	<article class="about-content">
+                            </div>
 
-                    	<p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc, fiant sollemnes in futurum.</p>
+                            <div class="col-xs-12 col-sm-12 col-md-8">
 
-                        <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consueum formas humanitatis per seacula quarta deciEodem modo tythepi, qui nunc, fiant sollemnes in futurum.</p>
+                            	<section>
 
-                    </article>
+                                	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed volutpat eu nibh ultricies semper. Vivamus porta, felis vitae facilisis sodales, felis est iaculis orci, et ornare sem mauris ut turpis. Pellentesque vitae tortor nec tellus hendrerit aliquam. Donec condimentum leo eu ull pellentesque urna rhoncus.</p>
 
-                </section>
+                                    <p>elis est iaculis orci, et ornare sem mauris ut turpis. Pellentesque vitae tortor nec tellus hendrerit aliquam. Donec condimentum leo eu ullamcorper scelerisque pellentes rhoncus.</p>
 
-                
+                                    
 
-                <div class="clearfix"></div>
+                                    <p><strong>Role</strong><br/>
 
-                
+									Branding, Identity, Web Design, UX / UI</p>
 
-                <!-- thumbnails -->
+                                </section>
 
-                	<div class="thumbnails-pan">
+                            
 
-                    	<section class="col-xs-12 col-sm-4 col-md-4 col-lg-4 ">
+                            </div>
 
-                        	<figure>
+                        </div>
 
-                            	<img src="images/about-images/about-image-1.jpg" class="img-responsive"/>
-
-                            	<figcaption>
-
-                                	<h3>John Doe</h3>
-
-                                    <h5>The designer</h5>
-
-                                </figcaption>
-
-                            </figure>
-
-                        </section>
-
-                        <section class="col-xs-12 col-sm-4 col-md-4 col-lg-4 ">
-
-                        	<figure>
-
-                            	<img src="images/about-images/about-image-2.jpg" class="img-responsive"/>
-
-                            	<figcaption>
-
-                                	<h3>kristy Roan</h3>
-
-                                    <h5>The Manager</h5>
-
-                                </figcaption>
-
-                            </figure>
-
-                        </section>
-
-                        <section class="col-xs-12 col-sm-4 col-md-4 col-lg-4 ">
-
-                        	<figure>
-
-                            	<img src="images/about-images/about-image-3.jpg" class="img-responsive"/>
-
-                            	<figcaption>
-
-                                	<h3>Jason takas</h3>
-
-                                    <h5>The Founder</h5>
-
-                                </figcaption>
-
-                            </figure>
-
-                        </section>
+                        <div class="clearfix"></div>
 
                         
 
-                     
+                        <div class="work-images grid">
+
+                            <ul class="grid-lod effect-2" id="grid">
+
+                                <li><img src="images/work/works-image-1.jpg" alt="" class="img-responsive"/></li>
+
+                                <li><img src="images/work/works-image-2.jpg" alt="" class="img-responsive"/></li>
+
+                                <li><img src="images/work/works-image-3.jpg" alt="" class="img-responsive"/></li>
+
+                            </ul>
+
+                        </div>
+
+                        
 
                     </div>
 
-                <!-- thumbnails -->
+                <!-- work details -->
 
-                
+            
 
-                
-
-            </div>
+            
 
         </main>
 
@@ -285,6 +251,16 @@
         <!-- Include all compiled plugins (below), or include individual files as needed -->
 
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
+
+        <script src="js/effects/masonry.pkgd.min.js"  type="text/javascript"></script>
+
+		<script src="js/effects/imagesloaded.js"  type="text/javascript"></script>
+
+		<script src="js/effects/classie.js"  type="text/javascript"></script>
+
+		<script src="js/effects/AnimOnScroll.js"  type="text/javascript"></script>
+
+        <script src="js/effects/modernizr.custom.js"></script>
 
         <!-- jquery.countdown -->
 

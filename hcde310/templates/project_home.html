@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Holiday Sun - Home</title>
+    <link href="../static/styles.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+
+<nav>
+    <form class="header" action="/" method="get">
+        <input class="header" type="submit" value="Holiday Sun" id="header" name="header"/><br />
+    </form>
+    <form class="normal" action="/contact" method="get">
+        <input class="normal" type="submit" value="Contact" id="contact" name="contact"/><br />
+    </form>
+    <form class="normal" action="/" method="get">
+        <input class="normal" type="submit" value="Home" id="home" name="home"/><br />
+    </form>
+</nav>
+
+<div>
+    <p style="margin:3.5% 7% 0 7%"> This website takes information from the user as parameters and outputs the date of a
+    holiday and the sun-up and sun-down time for that holiday in the given year. </p>
+
+    <form class="forms" action="results" method="get">
+        <label class="forms" for="holiday">Holiday:</label>
+        <input class="forms" type="text" id="holiday" name="holiday"/><br />
+
+        <label class="forms" for="h_country">Country: (that the holiday is celebrated in; two-letter country code only)</label>
+        <input class="forms" type="text" id="h_country" name="h_country"/><br />
+
+        <label class="forms" for="postal">Postal Code: </label>
+        <input class="forms" type="text" id="postal" name="postal"/><br />
+
+        <label class="forms" for="p_country">Country: (that the postal code is in)</label>
+        <input class="forms" type="text" id="p_country" name="p_country"/><br />
+
+        <label class="forms" for="year">Year:</label>
+        <input class="forms" type="number" id="year" name="year"/><br />
+
+        <input class="forms" type="submit" value="Search" id="search" name="search"/><br />
+    </form>
+</div>
+
+</body>
+</html>
