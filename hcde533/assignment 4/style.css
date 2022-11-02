@@ -1,7 +1,7 @@
 
 html, body {
   padding: 0 0 0 0;
-  margin: 0;
+  margin: 20%;
   font-family: 'helvetica', 'arial', 'sans';
 }
 
@@ -18,7 +18,6 @@ a {
   background: #fff;
   color: #000;
   height: 500px;
-  padding: 30px 30px 30px;
 }
 
 .header h1 {
