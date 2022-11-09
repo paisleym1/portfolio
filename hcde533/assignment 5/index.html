@@ -15,7 +15,7 @@
               Part 1: Merging Meshes
             </h2>
             <p>
-                First thing I did was go to Thingiverse and download two meshes, this <a href="https://www.thingiverse.com/thing:557527" target="_blank"><p>PacMan Ghost</p></a> and this <a href="https://www.thingiverse.com/thing:178683" target="_blank"><p>Top Hat</p></a>. 
+                First thing I did was go to Thingiverse and download two meshes, this <a href="https://www.thingiverse.com/thing:557527" target="_blank">PacMan Ghost</a> and this <a href="https://www.thingiverse.com/thing:178683" target="_blank">Top Hat</a>. 
                 I wanted to merge the Top Hat with the PacMan Ghost so that the ghost would be wearing the top hat, so I exported the two files to Rhino.  
                 I reduced the polygon count of the meshes to make everything easier for me to work with. 
             </p>
@@ -31,18 +31,33 @@
                 good on the ghost's head.
             </p>
             <img src="step3.png" width=800></a> 
-            <p></p>
+            <p>
+                I decided to get a little creative and cut the top off the ghost where I wanted the top hat to go. I did this by cover the part I wanted to keep with the 
+                top hat and using MeshTrim, with the hat as my cutting object and the ghost to be cut. I'm now realizing I probably did not need to do this but I the time 
+                I thought it was necessary. 
+            </p>
             <img src="step4.png" width=800></a> 
-            <p></p>
+            <p>
+                Because I cut the top off my ghost, it was no longer a closed mesh, so I used Cap to close it off.
+            </p>
             <img src="step5.png" width=800></a> 
-            <p></p>
+            <p>
+                After that I used MeshBooleanUnion again to merge the ghost with the top hat.
+            </p>
             <img src="step6.png" width=800></a> 
-            <p></p>
-            <img src="step7.png" width=800></a> 
-            <p></p>
+            <p>
+                I made sure the <a href="https://www.thingiverse.com/thing:557527" target="_blank">Ghost Wearing a Top Hat</a> passed the checks for rapid prototyping 
+                by checking the Object Description. As you can see in the image, they are a Valid Mesh.
+            </p>
             <img src="step8.png" width=800></a> 
-            <p></p>
-            <img src="step9.png" width=800></a> 
+            <p>
+                I also checked the Mesh Repair, where I can confirm that This is a Good Mesh.
+            </p>
+            <img src="step9.png" width=800></a>
+            <p>
+                Ghost is so happy with their top hat!!
+            </p>
+            <img src="step7.png" width=800></a> 
 
             <h2>
               Part 2: Lamp Plan
