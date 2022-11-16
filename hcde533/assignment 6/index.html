@@ -10,35 +10,28 @@
     </head>
     <body> 
         <div class="header">
-            <h1>Paisley Maschmeier's Assignment 5: Getting Meshy!</h1>
+            <h1>Paisley Maschmeier's Assignment 5: Lamps Part 2</h1>
             <h2>
-              Part 1: Merging Meshes
+              Part 1: Ideation
             </h2>
+            
             <p>
-                First thing I did was go to Thingiverse and download two meshes, this <a href="https://www.thingiverse.com/thing:557527" target="_blank">PacMan Ghost</a> and this <a href="https://www.thingiverse.com/thing:178683" target="_blank">Top Hat</a>. 
-                I wanted to merge the Top Hat with the PacMan Ghost so that the ghost would be wearing the top hat, so I exported the two files to Rhino.  
-                I reduced the polygon count of the meshes to make everything easier for me to work with. 
             </p>
-            <img src="step1.png" width=800></a> 
+            <img src="lamplan.png" width=800></a> 
+        
             <p>
-                Merging the two meshes proved much harder than I thought it would. The top hat is a closed mesh with a hollow space in the middle, so when I merged 
-                it with the ghost it still had that empty space inside it, as well as overlapping parts. Basically, it was a bad mesh. I could not figure out how
-                to fill in the top hat, so I opted to make my own since it's only two shapes and really not that complicated. 
+                https://www.youtube.com/watch?v=22VllkNdhYg 
+            </p>
+        
+            <img src="a6diagram.png" width=800></a> 
+            <p>             
             </p>
             <img src="step2.png" width=800></a> 
+           
             <p>
-                I was able to create my own top hat easily by making two solids, turning them into meshes, and then using MeshBooleanUnion. I also sized it so it was look 
-                good on the ghost's head.
             </p>
-            <img src="step3.png" width=800></a> 
+            <img src="shape2.png" width=800></a> 
             <p>
-                I decided to get a little creative and cut the top off the ghost where I wanted the top hat to go. I did this by cover the part I wanted to keep with the 
-                top hat and using MeshTrim, with the hat as my cutting object and the ghost to be cut. I'm now realizing I probably did not need to do this but I the time 
-                I thought it was necessary. 
-            </p>
-            <img src="step4.png" width=800></a> 
-            <p>
-                Because I cut the top off my ghost, it was no longer a closed mesh, so I used Cap to close it off.
             </p>
             <img src="step5.png" width=800></a> 
             <p>
